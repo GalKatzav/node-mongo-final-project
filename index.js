@@ -17,6 +17,10 @@ app.use("/users", require("./routes/usersRoutes"));
 app.use("/tasks", require("./routes/tasksRoutes"));
 app.use("/categories", require("./routes/categoryRoutes"));
 
+app.use((req, res, next, err) => {
+  console.log(err);
+})
+
 app.listen(port, () => {
   console.log("listen to port", port);
 });
