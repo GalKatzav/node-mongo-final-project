@@ -72,6 +72,7 @@ router.delete("/:id", async (req, res) => {
   res.send(`user with id ${givenID} was deleted`);
 });
 
+/*
 router.patch("/update-user", async (req, res) => {
   try {
     const { token, name } = req.body;
@@ -99,6 +100,44 @@ router.patch("/update-user", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
+*/
+
+router.put("/update-user", async (req, res) => {
+  try {
+    const { token, name, email } = req.body;
+
+    if (!token) {
+      return res.status(400).send("Token is required");
+    }
+
+    const user = jwt.verify(token, "123");
+
+    if (!user) {
+      return res.status(401).send("Invalid token");
+    }
+
+    // Check if both name and email are provided
+    if (name && email) {
+      return res.status(400).send("You can only change either name or email, not both");
+    }
+
+    // Apply updates to the user object
+    if (name) {
+      user.name = name;
+    }
+
+    if (email) {
+      user.email = email;
+    }
+
+    // Send back the updated user object in the response
+    res.json(user);
+  } catch (error) {
+    console.error("Error in PUT /update-user:", error);
+    res.status(500).send("Server error");
+  }
+});
+
 
 module.exports = router;
 

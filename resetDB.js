@@ -50,13 +50,13 @@ main();
 async function main() {
   db.connect();
 
-  // console.log("deleting all products...");
-  // await Product.deleteMany();
-  // console.log("complete!");
+  console.log("deleting all products...");
+  await Product.deleteMany();
+  console.log("complete!");
 
-  // console.log("inserting products...");
-  // await Product.insertMany(sampleProducts);
-  // console.log("complete!");
+  console.log("inserting products...");
+  await Product.insertMany(sampleProducts);
+  console.log("complete!");
 
   console.log("deleting all users...");
   await User.deleteMany();
