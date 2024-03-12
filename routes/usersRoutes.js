@@ -65,7 +65,7 @@ router.post("/whoami", async (req, res) => {
   res.send(user.name);
 });
 
-// Need to id that i want to delete
+// Need id that i want to delete
 router.delete("/:id", async (req, res) => {
   const givenID = req.params.id;
   await User.findByIdAndDelete(givenID);

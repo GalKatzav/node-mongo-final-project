@@ -14,6 +14,7 @@ app.get("/ping", (req, res) => {
 
 app.use("/products", require("./routes/productsRoutes"));
 app.use("/users", require("./routes/usersRoutes"));
+app.use("/tasks", require("./routes/tasksRoutes"));
 
 app.listen(port, () => {
   console.log("listen to port", port);
