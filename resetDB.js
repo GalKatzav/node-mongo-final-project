@@ -12,12 +12,13 @@ main();
 async function main() {
   db.connect();
 
-  console.log();
-  // delete all product
-  await Product.deleteMany({});
+  console.log('deleting all products...');
+  await Product.deleteMany();
+  console.log('complete!');
 
-  // insert all product sample
+  console.log('inserting products...');
   await Product.insertMany(sampleProducts);
+  console.log('complete!');
 
   db.disconnect();
 }
