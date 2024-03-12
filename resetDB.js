@@ -2,6 +2,7 @@ const db = require("./db");
 const Product = require("./models/Product");
 const User = require("./models/User");
 const Task = require("./models/Task");
+const Category = require("./models/Category");
 
 const sampleProducts = [
   { name: "apple", price: 42 },
@@ -45,6 +46,12 @@ const sampleTasks = [
   },
 ];
 
+const sampleCategories = [
+  { name: "Work", userId: "60d8d87b89a2652038a4e28f" },
+  { name: "Personal", userId: "60d8d87b89a2652038a4e28f" },
+  { name: "Shopping", userId: "60d8d87b89a2652038a4e28f" },
+];
+
 main();
 
 async function main() {
@@ -72,6 +79,14 @@ async function main() {
 
   console.log("inserting tasks...");
   await Task.insertMany(sampleTasks);
+  console.log("complete!");
+
+  console.log("deleting all categories...");
+  await Category.deleteMany();
+  console.log("complete!");
+
+  console.log("inserting categories...");
+  await Category.insertMany(sampleCategories);
   console.log("complete!");
 
   db.disconnect();

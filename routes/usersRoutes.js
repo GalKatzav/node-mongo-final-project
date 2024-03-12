@@ -72,7 +72,7 @@ router.delete("/:id", async (req, res) => {
   res.send(`user with id ${givenID} was deleted`);
 });
 
-/*
+
 router.patch("/update-user", async (req, res) => {
   try {
     const { token, name } = req.body;
@@ -100,7 +100,7 @@ router.patch("/update-user", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
-*/
+
 
 router.put("/update-user", async (req, res) => {
   try {
@@ -118,7 +118,9 @@ router.put("/update-user", async (req, res) => {
 
     // Check if both name and email are provided
     if (name && email) {
-      return res.status(400).send("You can only change either name or email, not both");
+      return res
+        .status(400)
+        .send("You can only change either name or email, not both");
     }
 
     // Apply updates to the user object
@@ -137,7 +139,6 @@ router.put("/update-user", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
-
 
 module.exports = router;
 
