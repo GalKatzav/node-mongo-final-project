@@ -47,9 +47,18 @@ const sampleTasks = [
 ];
 
 const sampleCategories = [
-  { name: "Work", userId: "60d8d87b89a2652038a4e28f" },
-  { name: "Personal", userId: "60d8d87b89a2652038a4e28f" },
-  { name: "Shopping", userId: "60d8d87b89a2652038a4e28f" },
+  {
+    name: "Work",
+    userID: "60d8d87b89a2652038a4e28f",
+  },
+  {
+    name: "Personal",
+    userID: "60d8d87b89a2652038a4e290",
+  },
+  {
+    name: "Shopping",
+    userID: "60d8d87b89a2652038a4e291",
+  },
 ];
 
 main();
@@ -57,6 +66,7 @@ main();
 async function main() {
   db.connect();
 
+  // Products
   console.log("deleting all products...");
   await Product.deleteMany();
   console.log("complete!");
@@ -65,6 +75,7 @@ async function main() {
   await Product.insertMany(sampleProducts);
   console.log("complete!");
 
+  // Users
   console.log("deleting all users...");
   await User.deleteMany();
   console.log("complete!");
@@ -73,6 +84,7 @@ async function main() {
   await User.insertMany(sampleUsers);
   console.log("complete!");
 
+  // Tasks
   console.log("deleting all tasks...");
   await Task.deleteMany();
   console.log("complete!");
@@ -81,6 +93,7 @@ async function main() {
   await Task.insertMany(sampleTasks);
   console.log("complete!");
 
+  // Categories
   console.log("deleting all categories...");
   await Category.deleteMany();
   console.log("complete!");

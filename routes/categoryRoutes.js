@@ -6,6 +6,7 @@ const Category = require("../models/Category");
 // .../categories
 
 // GET /categories - Get all categories for a user
+/*
 router.get("/", async (req, res) => {
   try {
     const { userId } = req.query;
@@ -17,6 +18,17 @@ router.get("/", async (req, res) => {
   } catch (error) {
     console.error("Error fetching categories:", error);
     res.status(500).send("Server error");
+  }
+});
+*/
+
+router.get("/", async (req, res) => {
+  try {
+    const categories = await Category.find();
+    res.json(categories);
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
   }
 });
 
