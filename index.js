@@ -21,6 +21,10 @@ app.use((req, res, next, err) => {
   console.log(err);
 });
 
+app.use((req, res, next, err) => {
+  console.log(err);
+})
+
 app.listen(port, () => {
   console.log("listen to port", port);
 });
