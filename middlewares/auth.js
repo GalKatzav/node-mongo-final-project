@@ -1,3 +1,5 @@
+// This middleware function is responsible for authenticating incoming requests using JWT tokens and attaching
+// the authenticated user's data to the request object for further processing.
 const jwt = require("jsonwebtoken");
 
 function auth(req, res, next) {

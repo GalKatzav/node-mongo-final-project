@@ -5,6 +5,7 @@ const auth = require("../middlewares/auth");
 
 // .../tasks
 
+// Gets all the tasks from the DB
 router.get("/", async (req, res) => {
   try {
     const tasks = await Task.find();
@@ -14,11 +15,6 @@ router.get("/", async (req, res) => {
     res.sendStatus(500);
   }
 });
-
-// router.get("/", async (req, res) => {
-//   const allTasks = await Task.find().populate("userID");
-//   res.json(allTasks);
-// });
 
 // needs to send the title, userId and token in "Authoriztaion" - postman
 router.post("/", async (req, res) => {
