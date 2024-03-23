@@ -46,14 +46,6 @@ To get started with this API:
 
 ## API Endpoints
 
-### TASK
-
-GET /tasks: Retrieve all tasks.
-POST /tasks: Create a new task.
-GET /tasks/:id: Retrieve a specific task by its ID.
-PATCH /tasks/:id: Update a specific task by its ID.
-DELETE /tasks/:id: Delete a specific task by its ID.
-
 ### USER API ENDPOINTS
 
 This section outlines the API endpoints for user-related operations in the node-mongo-final-project.
