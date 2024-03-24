@@ -41,7 +41,7 @@ To get started with this API:
 1. Clone this repository.
 2. Install all the models listed above.
 3. Connect to your MongoDB instance.
-4. Run the application using npm start.
+4. Run the application using `npm run dev`.
 5. Access the API endpoints to manage tasks.
 
 ## API Endpoints
@@ -230,9 +230,3 @@ This middleware function is designed to authenticate incoming requests using JSO
 #### Usage
 
 This middleware can be used to protect routes that require authentication. It should be applied to the routes that need to verify the identity of the user.
-
-#### Notes
-
-- Ensure that the JWT secret key used for signing and verifying tokens is securely stored and not exposed in the code.
-- Customize the error messages and handling as per the application's requirements.
-- Adjust the middleware usage according to the application's route structure and authentication needs.
