@@ -213,3 +213,26 @@ This section outlines the API endpoints for category-related operations in the n
 - Mongoose
 - Express
 - JSON Web Tokens (JWT)
+
+### JWT Authentication Middleware
+
+This middleware function is designed to authenticate incoming requests using JSON Web Tokens (JWT) in a Node.js application integrated with MongoDB. It ensures that only authorized users can access protected routes by verifying the validity of the JWT token attached to the request headers.
+
+#### Functionality
+
+- The middleware extracts the JWT token from the `Authorization` header of the incoming request.
+- If no authorization header is found, it returns a `400 Bad Request` error with the message "no authorization header".
+- If a token is present but not provided correctly, it returns a `400 Bad Request` error with the message "no token".
+- Upon successful extraction of the token, it attempts to verify the token's authenticity using the secret key "123".
+- If the token is valid, the authenticated user's data extracted from the token is attached to the `req.user` object for further processing in subsequent middleware or route handlers.
+- If the token is invalid or expired, it returns a `400 Bad Request` error with the message "bad token".
+
+#### Usage
+
+This middleware can be used to protect routes that require authentication. It should be applied to the routes that need to verify the identity of the user.
+
+#### Notes
+
+- Ensure that the JWT secret key used for signing and verifying tokens is securely stored and not exposed in the code.
+- Customize the error messages and handling as per the application's requirements.
+- Adjust the middleware usage according to the application's route structure and authentication needs.
